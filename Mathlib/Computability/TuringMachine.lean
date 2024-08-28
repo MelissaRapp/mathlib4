@@ -308,6 +308,7 @@ theorem ListBlank.nth_succ {Γ} [Inhabited Γ] (l : ListBlank Γ) (n : ℕ) :
   exact Quotient.inductionOn' l.tail fun l ↦ rfl
 #align turing.list_blank.nth_succ Turing.ListBlank.nth_succ
 
+set_option trace.Meta.Tactic.simp.negativeCache true in
 @[ext]
 theorem ListBlank.ext {Γ} [i : Inhabited Γ] {L₁ L₂ : ListBlank Γ} :
     (∀ i, L₁.nth i = L₂.nth i) → L₁ = L₂ := by
