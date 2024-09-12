@@ -20,8 +20,7 @@ package mathlib where
 
 require "leanprover-community" / "batteries" @ git "main"
 require "leanprover-community" / "Qq" @ git "master"
---require "leanprover-community" / "aesop" @ git "master"
-require "MelissaRapp" /  "aesop" @ git "v4.11-rc1-statCollection" from git "https://github.com/MelissaRapp/aesop" @ "v4.11-rc1-statCollection"
+require "MelissaRapp" /  "aesop" @ git "simp-all-negativeCache-v2" from git "https://github.com/MelissaRapp/aesop" @ "simp-all-negativeCache-v2"
 require "leanprover-community" / "proofwidgets" @ git "v0.0.41"
 require "leanprover-community" / "importGraph" @ git "main"
 
