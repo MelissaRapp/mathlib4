@@ -11,7 +11,7 @@ require "leanprover-community" / "batteries" @ git "main"
 require "leanprover-community" / "Qq" @ git "master"
 --require "leanprover-community" / "aesop" @ git "master"
 require "MelissaRapp" /  "aesop"
-  from git "https://github.com/MelissaRapp/aesop" @ "simp-all-negativeCache-v2"
+  from git "https://github.com/MelissaRapp/aesop" @ "simp-all-negativeCache-v3"
 require "leanprover-community" / "proofwidgets" @ git "v0.0.43"
 require "leanprover-community" / "importGraph" @ git "main"
 require "leanprover-community" / "LeanSearchClient" @ git "main"
@@ -39,15 +39,15 @@ abbrev mathlibOnlyLinters : Array LeanOption := #[
   ⟨`linter.style.longFile, .ofNat 1500⟩,
   ⟨`linter.style.missingEnd, true⟩,
   ⟨`linter.style.multiGoal, true⟩,
-  ⟨`linter.style.setOption, true⟩
+  ⟨`linter.style.setOption, true⟩,
+  ⟨`aesop.collectStats, true⟩
 ]
 
 /-- These options are passed as `leanOptions` to building mathlib, as well as the
 `Archive` and `Counterexamples`. (`tests` omits the first two options.) -/
 abbrev mathlibLeanOptions := #[
     ⟨`pp.unicode.fun, true⟩, -- pretty-prints `fun a ↦ b`
-    ⟨`autoImplicit, false⟩,
-    ⟨`aesop.collectStats, true⟩
+    ⟨`autoImplicit, false⟩
   ] ++ -- options that are used in `lake build`
     mathlibOnlyLinters.map fun s ↦ { s with name := `weak ++ s.name }
 
