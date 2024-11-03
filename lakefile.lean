@@ -9,7 +9,9 @@ open Lake DSL
 
 require "leanprover-community" / "batteries" @ git "main"
 require "leanprover-community" / "Qq" @ git "master"
-require "leanprover-community" / "aesop" @ git "master"
+--require "leanprover-community" / "aesop" @ git "master"
+require "MelissaRapp" /  "aesop"
+  from git "https://github.com/MelissaRapp/aesop" @ "simp-all-negativeCache-v2"
 require "leanprover-community" / "proofwidgets" @ git "v0.0.43"
 require "leanprover-community" / "importGraph" @ git "main"
 require "leanprover-community" / "LeanSearchClient" @ git "main"
@@ -44,7 +46,8 @@ abbrev mathlibOnlyLinters : Array LeanOption := #[
 `Archive` and `Counterexamples`. (`tests` omits the first two options.) -/
 abbrev mathlibLeanOptions := #[
     ⟨`pp.unicode.fun, true⟩, -- pretty-prints `fun a ↦ b`
-    ⟨`autoImplicit, false⟩
+    ⟨`autoImplicit, false⟩,
+    ⟨`aesop.collectStats, true⟩
   ] ++ -- options that are used in `lake build`
     mathlibOnlyLinters.map fun s ↦ { s with name := `weak ++ s.name }
 
